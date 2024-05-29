@@ -1,0 +1,42 @@
+<MyGrid>:
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        # First row with camera feed
+        BoxLayout:
+            id: cam
+            size_hint_y: 1
+
+        # Second row divided into four columns
+        GridLayout:
+            cols: 4
+            size_hint_y: 0.15
+
+            # First column (left blank)
+            BoxLayout:
+                Image:
+                    source: 'icons/file_icon.png'
+                    on_touch_down: root.check_touch_open(self, args[1])  # Modified touch event
+
+            # Second column with photo capture icon
+            BoxLayout:
+                Image:
+                    source: 'icons/photo_icon.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    on_touch_down: root.check_touch_capture(self, args[1])  # Modified touch event
+
+            # Third column with video capture icon
+            BoxLayout:
+                Image:
+                    source: 'icons/video_icon.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+            # Fourth column (left blank)
+            BoxLayout:
+                Image:
+                    source: 'icons/switch_icon3.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
